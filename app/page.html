@@ -1,0 +1,70 @@
+<!doctype html>
+
+<html>
+
+  <head>
+    <title>Boilerplate</title>
+    <link href='#' rel='shortcut icon'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+
+    <!--build:css css/styles.min.css-->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/lib-styles.css">
+    <!--endbuild-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <header class='header'>
+      <h1 class='header__title'>Bananarama sads</h1>
+    </header>
+
+    <main class='container'>
+
+      <section class='container__content'>
+        Page stuff
+      </section>
+
+      <aside class='container__sidebar'>
+        Sidebar stuff
+      </aside>
+
+    </main>
+
+    <footer class='footer'>
+      &copy; 2016
+    </footer>
+
+    <!-- JSPM -->
+    <script src='js/jspm_packages/system.js'></script>
+    <script src='js/config.js'></script>
+    <script type='text/javascript'>
+      System.import('js/main.js');
+    </script>
+
+    <!-- Class Mapper -->
+    <script type='text/javascript'>
+      let data;
+      console.log('data:', data);
+
+      $.getJSON('data.json', function(response) {
+        let data = response;
+        console.log('data > response', response);
+      }).done(function(data) {
+        let json = data;
+        console.log('json', json);
+        let template_file = json['template-file'];
+        console.log('template file', template_file);
+        function PageInit(ClassMapper) {
+          ClassMapper(template_file);
+        }
+        System.import('js/main').then(function(){ PageInit(ClassMapper)});
+      });
+    </script>
+
+  </body>
+
+</html>

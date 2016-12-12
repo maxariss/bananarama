@@ -1,0 +1,96 @@
+<!--
+
+ ...................................................................................................
+..MMMMMMMMMMM,.MMMMMMMMN. ..?MMM ....MMM...MMMMMMMMM,..MMMM......MMMM..... MMMM8 ....MMMM....MMMD ..
+..MMMMMMMMMMM,.MMMMMMMMMMM..?MMM ....MMM...MMMMMMMMM,..MMMMM ...MMMMM.....MMMMMM .... MMMM .MMMM ...
+...  .MMMM ....MMMM...ZMMM  ?MMM   . MMM   MMMM..  .  .MMMMM+.  MMMMM..  .MMMMMM8 .  . MMMMMMMM ....
+......MMMM . ..MMMM...~MMM .?MMM ....MMM...MMMM........MMMMMM  MMMMMM....MMM,.MMM .....,MMMMMM. ....
+......MMMM  . .MMMMMMMMMMM .?MMM ..  MMM.  MMMMMMMMM ..MMM MMM MM.MMM....MMM .MMM? .... MMMMM. .....
+......MMMM ....MMMMMMMMM,...:MMM.....MMM...MMMMZ$$$$ ..MMMOOMMMMM MMM...MMMMMMMMMM.....,MMMMMM .....
+.    .MMMM   . MMMM. MMMM.   MMMM.  MMMM   MMMM.       MMMM.MMMM =MMM.  MMMMMMMMMM?.   MMM MMMM.....
+...  .MMMM .   MMMM. .MMMM. .MMMMMMMMMMI.. MMMMMMMMMM..MMMM..MM..+MMM..MMMM .  MMMM  .MMMM. MMMM....
+ ...  MMMM  ...MMMM. .NMMMD . ZMMMMMMM, .. MMMMMMMMMM..MMMM.. .  +MMM..MMMN . .IMMM..MMMM.. MMMMO...
+............ ................. . .. .. ... .........................................................
+. .   .....   . ..  .  . .     .      .     .  ... .  ... . ..  . ..  . ... .  ... . ..  . .........
+ ............ . .. .. ........   .     . .DM7  .     .  ...            ?MM .  .       ...   ........
+ ..:M$$ZMMMM .  .. .  MM888888I  . ..  ZMM:.7MMZ    ..  MM  .   .   MMMO..MMM..    . .MM:.  ..MM....
+...:M..... MM ........MM ..............MM ..............MM ........MM  ..... .........M,M ... MM...
+...:M...... MM........MM ..............MM.............. MM .. ....=M+........... .....M 8M . .MM....
+...:M.......MM.... .. MMMMMMM7. ..... ..MMMN.  ... .....MM ...  ..MM  . ......... ....M. MM   MM....
+...:M.......MM .......MM.    ............ .MMMM ........MM .......MM ...DMMMM.........M...MM..MM....
+...:M.......MM .......MM .....................MM .......MM .......DM ......7M.........M....MM.MM.. .
+...:M......MM  .......MM .....................MM .......MM ........MM......7M.........M.....MMMM...
+...:M.. .MMM  .. .. ..MM ...... ......MMM ...MM? .......MM .........NMM    MM.........M......NMM....
+...:MMMMM  ...........MMMMMMMMM.. ..... :MMMMO .........MM.......... .MMMMM  .........M ......MM ...
+...................................... .............................................................
+.        .
+                                                                                     GlassGiant.com
+
+-->
+<!doctype html>
+
+<html>
+
+  <head>
+    <title>Boilerplate</title>
+    <link href='#' rel='shortcut icon'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
+
+    <!--build:css css/styles.min.css-->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/lib-styles.css">
+    <!--endbuild-->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  </head>
+
+  <body>
+
+    <header class='header'>
+      <h1 class='header__title'>Bananarama sads</h1>
+    </header>
+
+    <main class='container'>
+
+      <section class='container__content'>
+        Fun stuff
+      </section>
+
+      <aside class='container__sidebar'>
+        Lame stuff
+      </aside>
+
+    </main>
+
+    <footer class='footer'>
+      &copy; 2016
+    </footer>
+
+    <!-- JSPM -->
+    <script src='js/jspm_packages/system.js'></script>
+    <script src='js/config.js'></script>
+    <script type='text/javascript'>
+      System.import('js/main.js');
+    </script>
+
+    <!-- Class Mapper -->
+    <script type='text/javascript'>
+      // let data;
+
+      $.getJSON('data.json', function(response){
+        // let data = response;
+      }).done(function(data) {
+        // let json = data;
+        // let template_file = json['template-file'];
+
+        // function PageInit(ClassMapper) {
+        //   ClassMapper(template_file);
+        // }
+        // System.import('js/main').then(function(){ PageInit(ClassMapper)});
+      });
+    </script>
+
+  </body>
+
+</html>
