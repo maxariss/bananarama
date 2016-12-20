@@ -3,7 +3,7 @@
 <html>
 
   <head>
-    <title>Boilerplate</title>
+    <title>Space Jamz</title>
     <link href='#' rel='shortcut icon'>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
 
@@ -19,17 +19,17 @@
   <body>
 
     <header class='header'>
-      <h1 class='header__title'>Bananarama sads</h1>
+      <h1 class='header__title'>Bananarama: home</h1>
     </header>
 
     <main class='container'>
 
       <section class='container__content'>
-        Fun stuff
+        Home stuff
       </section>
 
       <aside class='container__sidebar'>
-        Lame stuff
+        Sidebar stuff
       </aside>
 
     </main>
@@ -48,7 +48,7 @@
     <!-- Class Mapper -->
     <script type='text/javascript'>
       let data;
-      $.getJSON('data.json', function(response) {
+      $.getJSON('data/home.json', function(response) {
         let data = response;
       }).done(function(data) {
         let json = data;

@@ -19,7 +19,7 @@
   <body>
 
     <header class='header'>
-      <h1 class='header__title'>Bananarama sads</h1>
+      <h1 class='header__title'>Bananarama: page</h1>
     </header>
 
     <main class='container'>
@@ -48,16 +48,11 @@
     <!-- Class Mapper -->
     <script type='text/javascript'>
       let data;
-      console.log('data:', data);
-
-      $.getJSON('data.json', function(response) {
+      $.getJSON('data/page.json', function(response) {
         let data = response;
-        console.log('data > response', response);
       }).done(function(data) {
         let json = data;
-        console.log('json', json);
         let template_file = json['template-file'];
-        console.log('template file', template_file);
         function PageInit(ClassMapper) {
           ClassMapper(template_file);
         }

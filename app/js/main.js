@@ -2,7 +2,7 @@ import Global from './global/Global';
 import Home from './templates/Home';
 import Page from './templates/Page';
 
-console.log('main is running');
+console.log('Main.js');
 
 const TemplateMap = {
   mapping: {
@@ -16,6 +16,8 @@ const TemplateMap = {
     }
   }
 };
+
+new Global;
 
 window.ClassMapper = function ClassMapper(template_file) {
   const TemplateClass = TemplateMap.get(template_file);

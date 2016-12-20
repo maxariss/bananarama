@@ -1,0 +1,45 @@
+linters:
+  EmptyRule:
+    enabled: false
+
+  LeadingZero:
+    style: include_zero
+
+  PropertySortOrder:
+    enabled: true
+    ignore_unspecified: false
+    min_properties: 2
+    separate_groups: false
+    order: recess
+
+  PropertySpelling:
+    extra_properties:
+      - "*zoom"
+
+  SpaceAfterComma:
+    enabled: false
+
+  SpaceBeforeBrace:
+    enabled: true
+    style: space # or 'new_line'
+    allow_single_line_padding: true
+
+  StringQuotes:
+    enabled: true
+    style: double_quotes # or single_quotes
+
+  VariableForProperty:
+    enabled: true
+    properties: [font]
+
+  SingleLinePerSelector:
+    enabled: false
+
+  NameFormat:
+    enabled: false
+
+  SelectorDepth:
+    enabled: false
+
+  PlaceholderInExtend:
+    enabled: false

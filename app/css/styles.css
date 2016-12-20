@@ -1,9 +1,5 @@
-p {
-  color: red;
-  border-radius: 70px; }
+.home {
+  background-color: purple; }
 
-.testing {
-  width: 71.42857%; }
-
-div {
-  display: block; }
+.page {
+  background: red; }
