@@ -24,7 +24,7 @@ var asciiArt = fs.readFileSync('ascii.txt', 'utf8');
 var imagemin = require('gulp-imagemin');
 
 // Compile SASS/SCSS
-// Run through autoprefixed
+// Run through autoprefixer
 // Pipe into CSS app dir
 // Stream with browsersync
 gulp.task('sass', function() {
@@ -116,7 +116,7 @@ gulp.task('watch', ['browserSync', 'sass'], function () {
 
 // Gulp build
 gulp.task('build', function (callback) {
-  runSequence('clean:dist', 'art', ['sass', 'json', 'useref', 'jspm', 'javascript', 'images'],
+  runSequence('clean:dist', ['sass', 'json', 'useref', 'jspm', 'javascript', 'images'],
     callback
   )
 })
