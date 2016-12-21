@@ -1,0 +1,25 @@
+{% extends "layout/base.nunjucks" %}
+
+{% block content %}
+
+<header class='header'>
+  <h1 class='header__title'>Bananarama: home</h1>
+</header>
+
+<main class='container'>
+
+  <section class='container__content'>
+    {% include "components/content.nunjucks" %}
+  </section>
+
+  <aside class='container__sidebar'>
+    {% include "components/sidebar.nunjucks" %}
+  </aside>
+
+</main>
+
+<footer class='footer'>
+  &copy; 2016
+</footer>
+
+{% endblock %}

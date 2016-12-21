@@ -6,6 +6,7 @@ var cache = require('gulp-cache');
 var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync').create();
+var nunjucksRender = require('gulp-nunjucks-render');
 
 // Styles
 var sass = require('gulp-sass');
@@ -74,6 +75,15 @@ gulp.task('jspm', function() {
 gulp.task('javascript', function() {
   return gulp.src('app/js/build.js')
     .pipe(gulp.dest('dist/js'))
+});
+
+// Nunjucks templating
+gulp.task('nunjucks', function() {
+  return gulp.src('app/templates/pages/**/*.+(html|nunjucks)')
+  .pipe(nunjucksRender({
+      path: ['app/templates']
+    }))
+  .pipe(gulp.dest('app'))
 });
 
 // Tattoo .html with ASCII
