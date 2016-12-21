@@ -1,3 +1,40 @@
+<!--
+
+            ,.
+          .,::::,.                                 .
+          .~~~~::,,,.                         ..,,..,,,.,
+          .~~:::,,,,,,,.                     ,,:,:::::,:,,,,.
+          .~~~~:::,:,,,,,,.                 ,,::~~~====~::~:,.
+          .:~~~::::::,,,,,,,,.             .::~=.       .~+=~~:..
+           .~~~~~:::::,,,,,,,,,.          .::~~.          ..+?=::.
+            ~~~~:~::::::,,,,,,,,,,..  .:...:~~                +I=:,
+            .,~~:~::::::::,:,,,,,,,,,,:=::=~~=.               ..I?~:
+              .~~::::::::::::::,,,,,,.,,,=:~==~..                +I~:.
+               .~~~:::::~::::::::,,,,,,,,,::===~~=~..             .II:
+                  ~~~::~::~:::::~::::,:+==::~+++==+??+++==~:. .  . .7=:
+                   .===~~~~:~~~~~~~::,::???++==I?I=+++??????????+=~..I.
+                 :===7I++=~~~~====::~::::=?????++++++??====+++++++??I?~.
+              .:~=:=++:~~I~??+===::~~~~:,::++++++?+++++++++++======+++====~
+              ~~~~~=+=++=~~=+++?:~~~~~~~::::=~?++++++++=+++=+=======+++++?7
+             .::~+..::   .=??++:~:~=~~~~~~:::=+??++++++++=============++??I
+             .~~+=~.    .  ...I7::::~=~~~~~~:::~???+?++++++++=========+++?+
+             .,~+?7777$77$7,..  .::::~~~~~~~~::::~????++++++++++++===++==
+              ..~=+?7777777$$ZOOZOO:~::::~~~~~~~:::~???????+?+++++++++=.
+                .:~?+?III7I777777$$$?~~::::~=~~~~~~::=II?II??IIIIII?..... .
+                 ....,,,??+,,=77$$$$$$$~:::~~~~==~~===~~I7777$7~:::::::,,,..
+                   .....,,,,,,~+++????+??+~::::~~~~==~~~~~~~~~:::,,.....
+                       .    .....,,,,,::~==~~+=~~=:,,,,,,,,,....
+
+ ______   _______  _        _______  _        _______  _______  _______  _______  _______
+(  ___ \ (  ___  )( (    /|(  ___  )( (    /|(  ___  )(  ____ )(  ___  )(       )(  ___  )
+| (   ) )| (   ) ||  \  ( || (   ) ||  \  ( || (   ) || (    )|| (   ) || () () || (   ) |
+| (__/ / | (___) ||   \ | || (___) ||   \ | || (___) || (____)|| (___) || || || || (___) |
+|  __ (  |  ___  || (\ \) ||  ___  || (\ \) ||  ___  ||     __)|  ___  || |(_)| ||  ___  |
+| (  \ \ | (   ) || | \   || (   ) || | \   || (   ) || (\ (   | (   ) || |   | || (   ) |
+| )___) )| )   ( || )  \  || )   ( || )  \  || )   ( || ) \ \__| )   ( || )   ( || )   ( |
+|/ \___/ |/     \||/    )_)|/     \||/    )_)|/     \||/   \__/|/     \||/     \||/     \|
+
+-->
 <!doctype html>
 
 <html>
@@ -7,7 +44,10 @@
     <link href='#' rel='shortcut icon'>
     <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
 
-    <link rel="stylesheet" href="css/styles.min.css">
+    <!--build:css css/styles.min.css-->
+    <link rel="stylesheet" type="text/css" href="css/styles.css">
+    <link rel="stylesheet" type="text/css" href="css/lib-styles.css">
+    <!--endbuild-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
@@ -18,27 +58,42 @@
     <!-- Layout -->
     
 
-<header class='header'>
-  <h1 class='header__title'>Bananarama: home</h1>
-</header>
+  <header class='header'>
+    <h1 class='header__title'>Bananarama: home</h1>
+  </header>
 
-<main class='container'>
+  <main class='container'>
 
-  <section class='container__content'>
-    <h1>This is our content partial</h1>
+    <section class='container__content'>
+      <h1>This is our content partial dude</h1>
 
-  </section>
+    </section>
 
-  <aside class='container__sidebar'>
-    <h1>This is our sidebar partial</h1>
+    <aside class='container__sidebar'>
+      <h1>This is our sidebar partial hey</h1>
 
-  </aside>
+    </aside>
 
-</main>
+  </main>
 
-<footer class='footer'>
-  &copy; 2016
-</footer>
+  <footer class='footer'>
+    &copy; 2016
+  </footer>
+
+  <!-- Class Mapper -->
+  <script type='text/javascript'>
+    let data;
+    $.getJSON('data/home.json', function(response) {
+      let data = response;
+    }).done(function(data) {
+      let json = data;
+      let template_file = json['template-file'];
+      function PageInit(ClassMapper) {
+        ClassMapper(template_file);
+      }
+      System.import('js/main').then(function(){ PageInit(ClassMapper)});
+    });
+  </script>
 
 
 
@@ -47,21 +102,6 @@
     <script src='js/config.js'></script>
     <script type='text/javascript'>
       System.import('js/main.js');
-    </script>
-
-    <!-- Class Mapper -->
-    <script type='text/javascript'>
-      let data;
-      $.getJSON('data/home.json', function(response) {
-        let data = response;
-      }).done(function(data) {
-        let json = data;
-        let template_file = json['template-file'];
-        function PageInit(ClassMapper) {
-          ClassMapper(template_file);
-        }
-        System.import('js/main').then(function(){ PageInit(ClassMapper)});
-      });
     </script>
 
   </body>

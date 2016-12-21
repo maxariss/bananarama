@@ -3,7 +3,7 @@
 {% block content %}
 
   <header class='header'>
-    <h1 class='header__title'>Bananarama: home</h1>
+    <h1 class='header__title'>Bananarama: page</h1>
   </header>
 
   <main class='container'>
@@ -25,7 +25,7 @@
   <!-- Class Mapper -->
   <script type='text/javascript'>
     let data;
-    $.getJSON('data/home.json', function(response) {
+    $.getJSON('data/page.json', function(response) {
       let data = response;
     }).done(function(data) {
       let json = data;
