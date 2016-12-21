@@ -1,4 +1,4 @@
-{% extends "layout/base.nunjucks" %}
+{% extends "layout/base.html" %}
 
 {% block content %}
 
@@ -9,11 +9,11 @@
 <main class='container'>
 
   <section class='container__content'>
-    {% include "components/content.nunjucks" %}
+    {% include "components/content.html" %}
   </section>
 
   <aside class='container__sidebar'>
-    {% include "components/sidebar.nunjucks" %}
+    {% include "components/sidebar.html" %}
   </aside>
 
 </main>
