@@ -38,11 +38,13 @@ gulp.task('sass', function() {
     }))
 });
 
+// Tattoo .html files with ASCII
 // Concatenates CSS files
 // Minifies CSS files
 // Pipe into DIST root dir
 gulp.task('useref', function() {
   return gulp.src('app/*.html')
+    .pipe(tattoo(asciiArt))
     .pipe(useref())
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'))
@@ -86,14 +88,6 @@ gulp.task('nunjucks', function() {
   .pipe(gulp.dest('app'))
 });
 
-// Tattoo .html with ASCII
-// Pipe into DIST root dir
-gulp.task('art', function() {
-  return gulp.src('app/*.html')
-    .pipe(tattoo(asciiArt))
-    .pipe(gulp.dest('dist'));
-});
-
 // Setup browsersync server
 gulp.task('browserSync', function() {
   browserSync.init({
@@ -126,14 +120,14 @@ gulp.task('watch', ['browserSync', 'nunjucks', 'sass'], function () {
 
 // Gulp build
 gulp.task('build', function (callback) {
-  runSequence('clean:dist', ['sass', 'json', 'useref', 'jspm', 'javascript', 'images'],
+  runSequence('clean:dist', ['useref', 'sass', 'json', 'jspm', 'javascript', 'images'],
     callback
-  )
+  );
 })
 
 // Gulp default
 gulp.task('default', function (callback) {
-  runSequence(['sass', 'json', 'art', 'browserSync', 'print', 'watch'],
+  runSequence(['sass', 'json', 'browserSync', 'print', 'watch'],
     callback
-  )
+  );
 });
