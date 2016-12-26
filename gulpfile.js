@@ -7,7 +7,11 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync').create();
 var nunjucksRender = require('gulp-nunjucks-render');
+
+// Deploy
 var rsync  = require('gulp-rsync');
+var path = require('path');
+var gulpReplace = require('gulp-replace-path');
 
 // Styles
 var sass = require('gulp-sass');
@@ -40,12 +44,14 @@ gulp.task('sass', function() {
 });
 
 // Tattoo .html files with ASCII
+// Replace development paths
 // Concatenates CSS files
 // Minifies CSS files
 // Pipe into DIST root dir
 gulp.task('useref', function() {
   return gulp.src('app/*.html')
     .pipe(tattoo(asciiArt))
+    .pipe(gulpReplace('js/jspm_packages', 'js'))
     .pipe(useref())
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'))
@@ -133,7 +139,7 @@ gulp.task('build', function (callback) {
     'data',
     callback
   );
-})
+});
 
 // Gulp default
 gulp.task('default', function (callback) {
