@@ -7,6 +7,7 @@ var del = require('del');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync').create();
 var nunjucksRender = require('gulp-nunjucks-render');
+var rsync  = require('gulp-rsync');
 
 // Styles
 var sass = require('gulp-sass');
@@ -97,6 +98,12 @@ gulp.task('browserSync', function() {
   })
 });
 
+// Pipe JSON data to DIST dir
+gulp.task('data', function() {
+  return gulp.src('app/data/**/*')
+  .pipe(gulp.dest('dist/data'))
+});
+
 // Delete contents of DIST dir
 gulp.task('clean:dist', function() {
   return del.sync('dist');
@@ -120,7 +127,10 @@ gulp.task('watch', ['browserSync', 'nunjucks', 'sass'], function () {
 
 // Gulp build
 gulp.task('build', function (callback) {
-  runSequence('clean:dist', ['useref', 'sass', 'json', 'jspm', 'javascript', 'images'],
+  runSequence(
+    'clean:dist',
+    ['useref', 'sass', 'json', 'jspm', 'javascript', 'images'],
+    'data',
     callback
   );
 })
@@ -130,4 +140,23 @@ gulp.task('default', function (callback) {
   runSequence(['sass', 'json', 'browserSync', 'print', 'watch'],
     callback
   );
+});
+
+// Gulp deploy
+gulp.task('deploy', function() {
+  return gulp.src('dist/**')
+    .pipe(rsync({
+      destination: '~/public_html/bananarama/',
+      root: 'dist',
+      hostname: 'truemaxdesign.com',
+      username: 'truemaxd',
+      incremental: true,
+      progress: true,
+      relative: true,
+      emptyDirectories: true,
+      recursive: true,
+      clean: true,
+      exclude: ['.DS_Store'],
+      include: []
+    }));
 });
