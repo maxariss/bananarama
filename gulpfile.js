@@ -31,6 +31,7 @@ var print = require('gulp-print');
 var tattoo = require('gulp-tattoo');
 var asciiArt = fs.readFileSync('ascii.txt', 'utf8');
 var imagemin = require('gulp-imagemin');
+var prettify = require('gulp-html-prettify');
 
 // Compile SASS/SCSS
 // Run through autoprefixer
@@ -51,6 +52,7 @@ gulp.task('sass', function() {
 // Remove dev scripts
 // Replace dev PageInit with production
 // Inject JSPM bundle for production
+// Prettify HTML files
 // Minifies CSS files
 // Pipe into DIST root dir
 gulp.task('useref', function() {
@@ -60,6 +62,7 @@ gulp.task('useref', function() {
     .pipe(removeCode({ 'production': true }))
     .pipe(gulpReplace('System.import("js/main").then(function(){ PageInit(ClassMapper)});', 'PageInit(ClassMapper);'))
     .pipe(inject.before('<script class="class-mapper">', '\n<script src="js/build.js"></script>\n'))
+    .pipe(prettify({indent_char: ' ', indent_size: 2}))
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'))
 });
