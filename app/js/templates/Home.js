@@ -4,7 +4,7 @@ import PageManager from '../PageManager';
 export default class Home extends PageManager {
   constructor() {
     super();
-    console.log('Sup Sup Sup Sup Sup Sup ');
+    console.log('Home.js');
 
     $('body').addClass('home');
   }
