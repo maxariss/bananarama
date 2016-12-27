@@ -47,14 +47,15 @@ gulp.task('sass', function() {
 });
 
 // Tattoo .html files with ASCII
-// Replace development paths
 // Concatenates CSS files
+// Remove dev scripts
+// Replace dev PageInit with production
+// Inject JSPM bundle for production
 // Minifies CSS files
 // Pipe into DIST root dir
 gulp.task('useref', function() {
   return gulp.src('app/*.html')
     .pipe(tattoo(asciiArt))
-    .pipe(gulpReplace('js/jspm_packages', 'js'))
     .pipe(useref())
     .pipe(removeCode({ 'production': true }))
     .pipe(gulpReplace('System.import("js/main").then(function(){ PageInit(ClassMapper)});', 'PageInit(ClassMapper);'))
