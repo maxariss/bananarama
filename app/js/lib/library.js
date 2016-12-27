@@ -1,1 +1,0 @@
-var extLib = 'face';

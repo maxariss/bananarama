@@ -60,7 +60,7 @@ gulp.task('useref', function() {
     .pipe(tattoo(asciiArt))
     .pipe(useref())
     .pipe(removeCode({ 'production': true }))
-    .pipe(gulpReplace('System.import("js/main").then(function(){ PageInit(ClassMapper)});', 'PageInit(ClassMapper);'))
+    .pipe(gulpReplace('System.import("js/Main").then(function(){ PageInit(ClassMapper)});', 'PageInit(ClassMapper);'))
     .pipe(inject.before('<script class="class-mapper">', '\n<script src="js/build.js"></script>\n'))
     .pipe(prettify({indent_char: ' ', indent_size: 2}))
     .pipe(gulpIf('*.css', cssnano()))
@@ -84,7 +84,7 @@ gulp.task('images', function() {
 
 // Bundle JSPM/ES6 Modules
 gulp.task('jspm', shell.task([
-  'jspm bundle-sfx main app/js/build.js'
+  'jspm bundle-sfx Main app/js/build.js'
 ]))
 
 // Pipe bundle into DIST js dir

@@ -11,8 +11,6 @@
     <link rel='stylesheet' type='text/css' href='css/styles.css'>
     <link rel='stylesheet' type='text/css' href='css/lib-styles.css'>
     <!--endbuild-->
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   </head>
 
   <body>
@@ -62,7 +60,7 @@
         let template_file = json["template-file"];
         function PageInit(ClassMapper) {ClassMapper(template_file);}
 
-        System.import("js/main").then(function(){ PageInit(ClassMapper)});
+        System.import("js/Main").then(function(){ PageInit(ClassMapper)});
       });
     </script>
 
