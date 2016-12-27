@@ -1,6 +1,7 @@
 // Core
 var gulp = require('gulp');
 var gulpIf = require('gulp-if');
+var shell = require('gulp-shell')
 var useref = require('gulp-useref');
 var cache = require('gulp-cache');
 var del = require('del');
@@ -74,8 +75,12 @@ gulp.task('images', function() {
     .pipe(gulp.dest('dist/images'))
 });
 
-// Bundle ES6 Modules
-// Pipe into DIST js dir
+// Bundle JSPM/ES6 Modules
+gulp.task('jspm', shell.task([
+  'jspm bundle-sfx main app/js/build.js'
+]))
+
+// Pipe bundle into DIST js dir
 gulp.task('javascript', function() {
   return gulp.src('app/js/build.js')
     .pipe(gulp.dest('dist/js'))
@@ -131,6 +136,7 @@ gulp.task('build', function (callback) {
   runSequence(
     'clean:dist',
     'nunjucks',
+    'jspm',
     ['useref', 'sass', 'json', 'javascript', 'images'],
     'data',
     callback
