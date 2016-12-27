@@ -12,6 +12,7 @@ var nunjucksRender = require('gulp-nunjucks-render');
 var rsync  = require('gulp-rsync');
 var path = require('path');
 var gulpReplace = require('gulp-replace-path');
+var removeCode = require('gulp-remove-code');
 
 // Styles
 var sass = require('gulp-sass');
@@ -53,6 +54,7 @@ gulp.task('useref', function() {
     .pipe(tattoo(asciiArt))
     .pipe(gulpReplace('js/jspm_packages', 'js'))
     .pipe(useref())
+    .pipe(removeCode({ 'production': true }))
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'))
 });
@@ -70,13 +72,6 @@ gulp.task('images', function() {
   return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
     .pipe(cache(imagemin()))
     .pipe(gulp.dest('dist/images'))
-});
-
-// Run JSPM module
-// Pipe into DIST js dir
-gulp.task('jspm', function() {
-  return gulp.src('app/js/jspm_packages/system.js')
-    .pipe(gulp.dest('dist/js'))
 });
 
 // Bundle ES6 Modules
@@ -135,7 +130,8 @@ gulp.task('watch', ['browserSync', 'nunjucks', 'sass'], function () {
 gulp.task('build', function (callback) {
   runSequence(
     'clean:dist',
-    ['useref', 'sass', 'json', 'jspm', 'javascript', 'images'],
+    'nunjucks',
+    ['useref', 'sass', 'json', 'javascript', 'images'],
     'data',
     callback
   );
