@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import Global from './global/Global';
 import Home from './templates/Home';
 import Page from './templates/Page';

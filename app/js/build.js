@@ -6897,17 +6897,19 @@ $__System.register('24', ['3', '4', '5', '6', '7', '8'], function (_export) {
     }
   };
 });
-$__System.register('1', ['2', '9', '24'], function (_export) {
+$__System.register('1', ['2', '3', '9', '24'], function (_export) {
   'use strict';
 
-  var Global, Home, Page, TemplateMap;
+  var Global, $, Home, Page, TemplateMap;
   return {
-    setters: [function (_) {
-      Global = _['default'];
-    }, function (_2) {
-      Home = _2['default'];
+    setters: [function (_2) {
+      Global = _2['default'];
+    }, function (_) {
+      $ = _['default'];
     }, function (_3) {
-      Page = _3['default'];
+      Home = _3['default'];
+    }, function (_4) {
+      Page = _4['default'];
     }],
     execute: function () {
 
