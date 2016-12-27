@@ -14,6 +14,7 @@ var rsync  = require('gulp-rsync');
 var path = require('path');
 var gulpReplace = require('gulp-replace-path');
 var removeCode = require('gulp-remove-code');
+var inject = require('gulp-inject-string');
 
 // Styles
 var sass = require('gulp-sass');
@@ -56,6 +57,8 @@ gulp.task('useref', function() {
     .pipe(gulpReplace('js/jspm_packages', 'js'))
     .pipe(useref())
     .pipe(removeCode({ 'production': true }))
+    .pipe(gulpReplace('System.import("js/main").then(function(){ PageInit(ClassMapper)});', 'PageInit(ClassMapper);'))
+    .pipe(inject.before('<script class="class-mapper">', '\n<script src="js/build.js"></script>\n'))
     .pipe(gulpIf('*.css', cssnano()))
     .pipe(gulp.dest('dist'))
 });
