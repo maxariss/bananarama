@@ -131,7 +131,7 @@ gulp.task('clean:dist', function() {
 
 // Delete build archive in DIST dir
 gulp.task('clean:build', function() {
-  return del.sync('dist/archive.zip');
+  return del.sync('dist/bundle.zip');
 });
 
 // Print file changes in terminal
@@ -146,13 +146,13 @@ gulp.task('print', function() {
 // Create .zip file of DIST dir
 gulp.task('archive', function() {
   return gulp.src('dist/*')
-    .pipe(zip('archive.zip'))
+    .pipe(zip('bundle.zip'))
     .pipe(gulp.dest('dist'));
 });
 
 // Rename archive with package info
 gulp.task('rename', function() {
-  return gulp.src('dist/archive.zip')
+  return gulp.src('dist/bundle.zip')
     .pipe(rename(name + '-' + version + '.zip'))
     .pipe(gulp.dest('builds'));
 });
