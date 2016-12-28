@@ -2,7 +2,6 @@
 var gulp = require('gulp');
 var gulpIf = require('gulp-if');
 var shell = require('gulp-shell')
-var useref = require('gulp-useref');
 var cache = require('gulp-cache');
 var del = require('del');
 var runSequence = require('run-sequence');
@@ -63,10 +62,9 @@ gulp.task('sass', function() {
 // Prettify HTML files
 // Minifies CSS files
 // Pipe into DIST root dir
-gulp.task('useref', function() {
+gulp.task('compile', function() {
   return gulp.src('app/*.html')
     .pipe(tattoo(asciiArt))
-    .pipe(useref())
     .pipe(removeCode({ 'production': true }))
     .pipe(gulpReplace('System.import("js/Main").then(function(){ PageInit(ClassMapper)});', 'PageInit(ClassMapper);'))
     .pipe(inject.before('<script class="class-mapper">', '\n<script src="js/build.js"></script>\n'))
@@ -190,7 +188,7 @@ gulp.task('build', function (callback) {
     'clean:dist',
     'nunjucks',
     'jspm',
-    ['useref', 'sass', 'json', 'javascript', 'images'],
+    ['compile', 'sass', 'json', 'javascript', 'images'],
     'data',
     callback
   );
