@@ -101,6 +101,12 @@ gulp.task('javascript', function() {
     .pipe(gulp.dest('dist/js'))
 });
 
+// Pipe styles into DIST css dir
+gulp.task('styles', function() {
+  return gulp.src('app/css/styles.css')
+    .pipe(gulp.dest('dist/css'))
+});
+
 // Nunjucks templating
 gulp.task('nunjucks', function() {
   return gulp.src('app/templates/pages/**/*.+(html|nunjucks)')
@@ -190,7 +196,7 @@ gulp.task('build', function (callback) {
     'clean:dist',
     'nunjucks',
     'jspm',
-    ['compile', 'sass', 'json', 'javascript', 'images'],
+    ['compile', 'sass', 'json', 'styles', 'javascript', 'images'],
     'data',
     callback
   );
