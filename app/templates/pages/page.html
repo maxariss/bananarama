@@ -1,29 +1,20 @@
-{% extends "layout/base.html" %}
+{% import 'components/page/page-header.html' as pageHeader %}
+{% import 'components/util/class-mapper.html' as pageJSON %}
+{% extends 'layout/base.html' %}
+{% set template = 'page' %}
 
 {% block content %}
-
-  <header class='header'>
-    <h1 class='header__title'>Bananarama: page</h1>
-  </header>
 
   <main class='container'>
 
     <section class='container__content'>
-      {% include "components/content.html" %}
+      {{ pageHeader.headerTitle(template) }}
+      {% include 'components/content.html' %}
     </section>
-
-    <aside class='container__sidebar'>
-      {% include "components/sidebar.html" %}
-    </aside>
 
   </main>
 
-  <footer class='footer'>
-    &copy; 2016
-  </footer>
-
-  <!-- .js class mapper -->
-  {% import 'util/class-mapper.html' as pageJSON %}
-  {{ pageJSON.classMapper('page') }}
+  <!-- javascript class mapper -->
+  {{ pageJSON.classMapper(template) }}
 
 {% endblock %}

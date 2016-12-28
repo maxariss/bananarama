@@ -41,5 +41,9 @@ linters:
   SelectorDepth:
     enabled: false
 
+  SelectorFormat:
+    enabled: true
+    convention: hyphenated_BEM
+
   PlaceholderInExtend:
     enabled: false

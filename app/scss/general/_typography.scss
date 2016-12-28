@@ -1,3 +1,13 @@
+@import url('https://fonts.googleapis.com/css?family=Dawning+of+a+New+Day');
+
 body {
   font-size: 25px;
+}
+
+h1 {
+  position: relative;
+  z-index: 10;
+  font-family: $heading-font;
+  font-size: 40px;
+  color: $yellow;
 }

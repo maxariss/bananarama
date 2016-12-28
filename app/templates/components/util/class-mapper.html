@@ -1,4 +1,4 @@
-{% macro classMapper(jsonPath) %}
+{% macro classMapper(template) %}
 
   <!-- removeIf(production) -->
   <script src='js/jspm_packages/system.js'></script>
@@ -6,7 +6,7 @@
   <!-- endRemoveIf(production) -->
 
   <script class="class-mapper">
-    $.getJSON('data/{{ jsonPath }}.json', function(response) {
+    $.getJSON('data/{{ template }}.json', function(response) {
       let data = response;
     }).done(function(data) {
       let json = data;
