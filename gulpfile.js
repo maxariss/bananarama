@@ -154,7 +154,26 @@ gulp.task('archive', function() {
 gulp.task('rename', function() {
   return gulp.src('dist/bundle.zip')
     .pipe(rename(name + '-' + version + '.zip'))
-    .pipe(gulp.dest('builds'));
+    .pipe(gulp.dest('packages'));
+});
+
+// Deploy files via SSH with rsync
+gulp.task('rsync', function() {
+  return gulp.src('dist/**')
+    .pipe(rsync({
+      destination: '~/public_html/bananarama/',
+      root: 'dist',
+      hostname: 'truemaxdesign.com',
+      username: 'truemaxd',
+      incremental: true,
+      progress: true,
+      relative: true,
+      emptyDirectories: true,
+      recursive: true,
+      clean: true,
+      exclude: ['.DS_Store'],
+      include: []
+    }));
 });
 
 // Gulp watch
@@ -186,28 +205,19 @@ gulp.task('package', function (callback) {
   );
 });
 
+// Gulp deploy
+gulp.task('deploy', function (callback) {
+  runSequence(
+    'package',
+    'build',
+    'rsync',
+    callback
+  );
+});
+
 // Gulp default
 gulp.task('default', function (callback) {
   runSequence(['sass', 'json', 'browserSync', 'print', 'watch'],
     callback
   );
-});
-
-// Gulp deploy
-gulp.task('deploy', function() {
-  return gulp.src('dist/**')
-    .pipe(rsync({
-      destination: '~/public_html/bananarama/',
-      root: 'dist',
-      hostname: 'truemaxdesign.com',
-      username: 'truemaxd',
-      incremental: true,
-      progress: true,
-      relative: true,
-      emptyDirectories: true,
-      recursive: true,
-      clean: true,
-      exclude: ['.DS_Store'],
-      include: []
-    }));
 });
