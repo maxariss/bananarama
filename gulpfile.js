@@ -19,8 +19,8 @@ var uglify = require('gulp-uglify');
 var jsonlint = require("gulp-jsonlint");
 
 // Deploy
-var rsync  = require('gulp-rsync');
 var path = require('path');
+var rsync  = require('gulp-rsync');
 var prettify = require('gulp-html-prettify');
 var gulpReplace = require('gulp-replace-path');
 var removeCode = require('gulp-remove-code');
