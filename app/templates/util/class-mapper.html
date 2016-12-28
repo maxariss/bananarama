@@ -1,0 +1,19 @@
+{% macro classMapper(jsonPath) %}
+
+  <!-- removeIf(production) -->
+  <script src='js/jspm_packages/system.js'></script>
+  <script src='js/config.js'></script>
+  <!-- endRemoveIf(production) -->
+
+  <script class="class-mapper">
+    $.getJSON('data/{{ jsonPath }}.json', function(response) {
+      let data = response;
+    }).done(function(data) {
+      let json = data;
+      let template_file = json['template-file'];
+      function PageInit(ClassMapper) {ClassMapper(template_file);}
+      System.import("js/Main").then(function(){ PageInit(ClassMapper)});
+    });
+  </script>
+
+{% endmacro %}

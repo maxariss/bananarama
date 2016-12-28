@@ -40,26 +40,29 @@
     &copy; 2016
   </footer>
 
+  <!-- .js class mapper -->
+  
+  
+
+  <!-- removeIf(production) -->
+  <script src='js/jspm_packages/system.js'></script>
+  <script src='js/config.js'></script>
+  <!-- endRemoveIf(production) -->
+
+  <script class="class-mapper">
+    $.getJSON('data/home.json', function(response) {
+      let data = response;
+    }).done(function(data) {
+      let json = data;
+      let template_file = json['template-file'];
+      function PageInit(ClassMapper) {ClassMapper(template_file);}
+      System.import("js/Main").then(function(){ PageInit(ClassMapper)});
+    });
+  </script>
 
 
-    <!-- removeIf(production) -->
-    <script src='js/jspm_packages/system.js'></script>
-    <script src='js/config.js'></script>
-    <!-- endRemoveIf(production) -->
 
-    <!-- Class mapper -->
-    <script class="class-mapper">
-      let data;
-      $.getJSON("data/home.json", function(response) {
-        let data = response;
-      }).done(function(data) {
-        let json = data;
-        let template_file = json["template-file"];
-        function PageInit(ClassMapper) {ClassMapper(template_file);}
 
-        System.import("js/Main").then(function(){ PageInit(ClassMapper)});
-      });
-    </script>
 
   </body>
 
