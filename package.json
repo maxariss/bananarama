@@ -55,6 +55,7 @@
       "core-js": "npm:core-js@^1.1.4"
     },
     "buildConfig": {
+      "sourceMaps": true,
       "transpileES6": true,
       "minify": true
     }

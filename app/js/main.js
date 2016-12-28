@@ -27,3 +27,5 @@ window.ClassMapper = function ClassMapper(template_file) {
     const Template = new TemplateClass();
   }
 };
+
+//# sourceMappingURL=js/build.js.map

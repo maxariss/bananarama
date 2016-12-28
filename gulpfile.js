@@ -96,7 +96,7 @@ gulp.task('jspm', shell.task([
 
 // Pipe bundle into DIST js dir
 gulp.task('javascript', function() {
-  return gulp.src('app/js/build.js')
+  return gulp.src(['app/js/build.js', 'app/js/build.js.map'])
     .pipe(gulp.dest('dist/js'))
 });
 
