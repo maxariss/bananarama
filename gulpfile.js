@@ -9,9 +9,19 @@ var runSequence = require('run-sequence');
 var browserSync = require('browser-sync').create();
 var nunjucksRender = require('gulp-nunjucks-render');
 
+// Styles
+var sass = require('gulp-sass');
+var prefix = require('gulp-autoprefixer');
+var cssnano = require('gulp-cssnano');
+
+// Javascript
+var uglify = require('gulp-uglify');
+var jsonlint = require("gulp-jsonlint");
+
 // Deploy
 var rsync  = require('gulp-rsync');
 var path = require('path');
+var prettify = require('gulp-html-prettify');
 var gulpReplace = require('gulp-replace-path');
 var removeCode = require('gulp-remove-code');
 var inject = require('gulp-inject-string');
@@ -23,22 +33,12 @@ var version = json.version;
 var zip = require('gulp-zip');
 var rename = require('gulp-rename');
 
-// Styles
-var sass = require('gulp-sass');
-var prefix = require('gulp-autoprefixer');
-var cssnano = require('gulp-cssnano');
-
-// Javascript
-var uglify = require('gulp-uglify');
-var jsonlint = require("gulp-jsonlint");
-
 // Extra
 var fs = require('fs');
 var print = require('gulp-print');
 var tattoo = require('gulp-tattoo');
 var asciiArt = fs.readFileSync('ascii.txt', 'utf8');
 var imagemin = require('gulp-imagemin');
-var prettify = require('gulp-html-prettify');
 
 // Compile SASS/SCSS
 // Run through autoprefixer
