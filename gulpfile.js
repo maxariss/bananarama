@@ -16,6 +16,13 @@ var gulpReplace = require('gulp-replace-path');
 var removeCode = require('gulp-remove-code');
 var inject = require('gulp-inject-string');
 
+// Package
+var json = require('./package.json');
+var name = json.name;
+var version = json.version;
+var zip = require('gulp-zip');
+var rename = require('gulp-rename');
+
 // Styles
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
@@ -122,13 +129,32 @@ gulp.task('clean:dist', function() {
   return del.sync('dist');
 });
 
+// Delete build archive in DIST dir
+gulp.task('clean:build', function() {
+  return del.sync('dist/archive.zip');
+});
+
 // Print file changes in terminal
 // Ignore JSPM modules
 gulp.task('print', function() {
   gulp.src(['app/**/*', '!app/js/jspm_packages/**/*.js'])
     .pipe(print(function(filepath) {
       return "built: " + filepath;
-    }))
+    }));
+});
+
+// Create .zip file of DIST dir
+gulp.task('archive', function() {
+  return gulp.src('dist/*')
+    .pipe(zip('archive.zip'))
+    .pipe(gulp.dest('dist'));
+});
+
+// Rename archive with package info
+gulp.task('rename', function() {
+  return gulp.src('dist/archive.zip')
+    .pipe(rename(name + '-' + version + '.zip'))
+    .pipe(gulp.dest('builds'));
 });
 
 // Gulp watch
@@ -146,6 +172,16 @@ gulp.task('build', function (callback) {
     'jspm',
     ['useref', 'sass', 'json', 'javascript', 'images'],
     'data',
+    callback
+  );
+});
+
+// Gulp package
+gulp.task('package', function (callback) {
+  runSequence(
+    'archive',
+    'rename',
+    'clean:build',
     callback
   );
 });
