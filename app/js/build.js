@@ -73,7 +73,7 @@ $__System.register('9', ['3', '4', '5', '6', '7', '8'], function (_export) {
           _classCallCheck(this, Home);
 
           _get(Object.getPrototypeOf(Home.prototype), 'constructor', this).call(this);
-          console.log('Sup Sup Sup Sup Sup Sup ');
+          console.log('Home.js');
 
           $('body').addClass('home');
         }
