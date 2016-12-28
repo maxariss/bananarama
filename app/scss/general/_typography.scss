@@ -11,3 +11,19 @@ h1 {
   font-size: 40px;
   color: $yellow;
 }
+
+.page-header {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  line-height: 1;
+  transform: translate(-50%, -50%);
+
+  span {
+    display: block;
+    padding: 0 10px 2px;
+    margin: 20px 65px 0 0;
+    color: $brown;
+    background-color: $body-background;
+  }
+}
