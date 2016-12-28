@@ -46,8 +46,10 @@ var imagemin = require('gulp-imagemin');
 // Stream with browsersync
 gulp.task('sass', function() {
   return gulp.src('app/scss/**/*.scss')
+    .pipe(sourcemaps.init())
     .pipe(sass())
     .pipe(prefix('last 5 versions'))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('app/css'))
     .pipe(browserSync.reload({
       stream: true
