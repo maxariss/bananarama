@@ -1,5 +1,7 @@
-.home {
-  background-color: yellow; }
+body {
+  background: orange; }
 
-.page {
-  background: red; }
+body {
+  font-size: 25px; }
+
+/*# sourceMappingURL=data:application/json;charset=utf8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImdlbmVyYWwvX2xheW91dC5zY3NzIiwibGliL192YXJpYWJsZXMuc2NzcyIsImdlbmVyYWwvX3R5cG9ncmFwaHkuc2NzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtFQUNFLG1CQ0RzQixFREV2Qjs7QUVGRDtFQUNFLGdCQUFnQixFQUNqQiIsImZpbGUiOiJzdHlsZXMuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiYm9keSB7XG4gIGJhY2tncm91bmQ6ICRib2R5LWJhY2tncm91bmQ7XG59XG4iLCIkYm9keS1iYWNrZ3JvdW5kOiBvcmFuZ2U7XG4iLCJib2R5IHtcbiAgZm9udC1zaXplOiAyNXB4O1xufVxuIl19 */

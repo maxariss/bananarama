@@ -1,7 +1,29 @@
-.home {
-  background-color: yellow;
-}
+// Packages
+// @import "../jspm_packages/npm/normalize.scss@0.1.0/normalize";
 
-.page {
-  background: red;
-}
+// Variables
+@import "lib/variables";
+
+// Functions
+// @import "lib/functions";
+
+// Utility
+// @import "lib/mixins";
+// @import "lib/extends";
+
+// General
+@import "general/layout";
+@import "general/typography";
+// @import "general/button";
+// @import "general/form";
+
+// Header
+// @import "components/header/header-layout";
+// @import "components/header/header-branding";
+// @import "components/header/header-navigation";
+// @import "components/header/header-tools";
+
+// Footer
+// @import "components/footer/footer-layout";
+// @import "components/footer/footer-branding";
+// @import "components/footer/footer-navigation";
