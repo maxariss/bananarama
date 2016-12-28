@@ -13,6 +13,7 @@ var nunjucksRender = require('gulp-nunjucks-render');
 var sass = require('gulp-sass');
 var prefix = require('gulp-autoprefixer');
 var cssnano = require('gulp-cssnano');
+var sourcemaps = require('gulp-sourcemaps'); //TODO: Hook sourcemaps up to scss
 
 // Javascript
 var uglify = require('gulp-uglify');
