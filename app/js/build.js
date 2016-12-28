@@ -6937,6 +6937,8 @@ $__System.register('1', ['2', '3', '9', '24'], function (_export) {
           var Template = new TemplateClass();
         }
       };
+
+      
     }
   };
 });
