@@ -85,7 +85,7 @@ gulp.task('json', function() {
 // Optimize image files
 // Pipe into DIST images dir
 gulp.task('images', function() {
-  return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg)')
+  return gulp.src('app/images/**/*.+(png|jpg|jpeg|gif|svg|ico)')
     .pipe(cache(imagemin()))
     .pipe(gulp.dest('dist/images'))
 });
