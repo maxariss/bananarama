@@ -59,5 +59,8 @@
       "transpileES6": true,
       "minify": true
     }
+  },
+  "dependencies": {
+    "firebase": "^3.6.4"
   }
 }

@@ -11,11 +11,56 @@
     <!-- removeIf(production) -->
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
     <!-- endRemoveIf(production) -->
+
+    <!-- Firebase -->
+    <script src='https://www.gstatic.com/firebasejs/3.6.4/firebase.js'></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.2/firebase-database.js"></script>
+
+<script>
+  var config = {
+    apiKey: 'AIzaSyB4lcfOssI4MMV0MtH_ZOigsO5SLk60BzE',
+    authDomain: 'bananarama-7310b.firebaseapp.com',
+    databaseURL: "https://bananarama-7310b.firebaseio.com",
+    storageBucket: 'bananarama-7310b.appspot.com',
+    messagingSenderId: "1056458197296"
+  };
+  firebase.initializeApp(config);
+</script>
+
+
   </head>
 
   <body>
 
-    <!-- Layout -->
+    <!-- Header -->
+    <header data-main-header>
+      <h2>Login</h2>
+<form data-login-form>
+  <input placeholder="Email Address" type="email" data-input-email required>
+  <input placeholder="Password" type="password" data-input-password required>
+
+  <button name="login" data-input-submit>
+    Login
+  </button>
+</form>
+
+      <h2>Register</h2>
+<form data-registration-form>
+  <input placeholder="Email Address" type="email" data-input-email required>
+  <input placeholder="Password" type="password" data-input-password required>
+
+  <button name="register" data-input-submit>
+    Register
+  </button>
+</form>
+
+      <button data-logout-button>Logout</button>
+      <div data-auth-form-message></div>
+    </header>
+
+    <!-- Content -->
     
 
   <main class='container'>

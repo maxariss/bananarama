@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import Global from './global/Global';
+import Account from './auth/Account';
 import Home from './templates/Home';
 import Page from './templates/Page';
 
@@ -19,6 +20,10 @@ const TemplateMap = {
 };
 
 new Global;
+
+const account = new Account({
+  el: '[data-main-header]'
+});
 
 window.ClassMapper = function ClassMapper(template_file) {
   const TemplateClass = TemplateMap.get(template_file);

@@ -41,6 +41,10 @@ A smallish build system for static websites and other odd jobs.
 * `SCSS` & `JSON` lint
 * Deploy with `rsync`
 
+## Firebase
+* `npm install -g firebase-tools`
+* `firebase serve`
+
 ## TODO
 * Add `ES6` linting
 * Create some sort of `JSON` database adapter

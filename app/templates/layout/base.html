@@ -11,11 +11,23 @@
     <!-- removeIf(production) -->
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
     <!-- endRemoveIf(production) -->
+
+    <!-- Firebase -->
+    {% include 'components/util/firebase.html' %}
+
   </head>
 
   <body>
 
-    <!-- Layout -->
+    <!-- Header -->
+    <header data-main-header>
+      {% include 'components/auth/auth-login-form.html' %}
+      {% include 'components/auth/auth-registration-form.html' %}
+      <button data-logout-button>Logout</button>
+      <div data-auth-form-message></div>
+    </header>
+
+    <!-- Content -->
     {% block content %}{% endblock %}
 
   </body>
