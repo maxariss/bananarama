@@ -47,7 +47,7 @@ $__System.register('2', ['3', '4', '5', '6', '7', '8'], function (_export) {
   };
 });
 $__System.register('9', ['3', '4', '5', '6', '7', '8'], function (_export) {
-  var $, PageManager, _get, _inherits, _createClass, _classCallCheck, Account;
+  var $, PageManager, _get, _inherits, _createClass, _classCallCheck, Auth;
 
   return {
     setters: [function (_5) {
@@ -66,15 +66,15 @@ $__System.register('9', ['3', '4', '5', '6', '7', '8'], function (_export) {
     execute: function () {
       'use strict';
 
-      Account = (function (_PageManager) {
-        _inherits(Account, _PageManager);
+      Auth = (function (_PageManager) {
+        _inherits(Auth, _PageManager);
 
-        function Account() {
+        function Auth() {
           var options = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
 
-          _classCallCheck(this, Account);
+          _classCallCheck(this, Auth);
 
-          _get(Object.getPrototypeOf(Account.prototype), 'constructor', this).call(this);
+          _get(Object.getPrototypeOf(Auth.prototype), 'constructor', this).call(this);
 
           // Options
           this.options = $.extend({
@@ -96,7 +96,7 @@ $__System.register('9', ['3', '4', '5', '6', '7', '8'], function (_export) {
 
         // Events
 
-        _createClass(Account, [{
+        _createClass(Auth, [{
           key: '_bindEvents',
           value: function _bindEvents() {
             var _this = this;
@@ -206,7 +206,7 @@ $__System.register('9', ['3', '4', '5', '6', '7', '8'], function (_export) {
           value: function _authMessage(code, message) {
             this.$form_messages.html('');
             this.$form_messages.append('<p>' + message + '</p>');
-            console.log('Error code: ', code);
+            console.log('Response code: ', code);
           }
         }, {
           key: 'loaded',
@@ -215,10 +215,10 @@ $__System.register('9', ['3', '4', '5', '6', '7', '8'], function (_export) {
           }
         }]);
 
-        return Account;
+        return Auth;
       })(PageManager);
 
-      _export('default', Account);
+      _export('default', Auth);
     }
   };
 });
@@ -7076,14 +7076,14 @@ $__System.register('25', ['3', '4', '5', '6', '7', '8'], function (_export) {
 $__System.register('1', ['2', '3', '9', '25', 'a'], function (_export) {
   'use strict';
 
-  var Global, $, Account, Page, Home, TemplateMap, account;
+  var Global, $, Auth, Page, Home, TemplateMap, auth;
   return {
     setters: [function (_2) {
       Global = _2['default'];
     }, function (_) {
       $ = _['default'];
     }, function (_3) {
-      Account = _3['default'];
+      Auth = _3['default'];
     }, function (_4) {
       Page = _4['default'];
     }, function (_a) {
@@ -7108,7 +7108,7 @@ $__System.register('1', ['2', '3', '9', '25', 'a'], function (_export) {
 
       new Global();
 
-      account = new Account({
+      auth = new Auth({
         el: '[data-main-header]'
       });
 

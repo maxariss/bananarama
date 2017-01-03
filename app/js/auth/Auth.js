@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import PageManager from '../PageManager';
 
-export default class Account extends PageManager {
+export default class Auth extends PageManager {
   constructor(options = {}) {
     super();
 
@@ -114,7 +114,7 @@ export default class Account extends PageManager {
   _authMessage(code, message) {
     this.$form_messages.html('');
     this.$form_messages.append(`<p>${message}</p>`);
-    console.log('Error code: ', code);
+    console.log('Response code: ', code);
   }
 
   loaded(next) {

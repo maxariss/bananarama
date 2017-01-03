@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import Global from './global/Global';
-import Account from './auth/Account';
+import Auth from './auth/Auth';
 import Home from './templates/Home';
 import Page from './templates/Page';
 
@@ -21,7 +21,7 @@ const TemplateMap = {
 
 new Global;
 
-const account = new Account({
+const auth = new Auth({
   el: '[data-main-header]'
 });
 
