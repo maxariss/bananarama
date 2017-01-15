@@ -46,6 +46,6 @@ export default class Logo {
       $('.logo__banana-fill', this.$logo).css('fill', colors[index].banana);
       $('.logo__banana-outline', this.$logo).css('fill', colors[index].outline);
       $('.logo__rectangle', this.$logo).css('fill', colors[index].rectangle);
-    }, 3000);
+    }, 15000);
   }
 }
