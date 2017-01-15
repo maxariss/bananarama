@@ -1,0 +1,15 @@
+@function shade($color, $percent) {
+  @return mix(#000, $color, $percent);
+}
+
+@function tint($color, $percent) {
+  @return mix(#fff, $color, $percent);
+}
+
+@function contrast($color, $percent: 6%) {
+  @if (lightness($color) > 50) {
+    @return shade($color, $percent);
+  } @else {
+    @return tint($color, $percent);
+  }
+}

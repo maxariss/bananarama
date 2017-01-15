@@ -1,20 +1,21 @@
+{% extends 'layout/base.html' %}
+
 {% import 'components/page/page-header.html' as pageHeader %}
 {% import 'components/util/class-mapper.html' as pageJSON %}
-{% extends 'layout/base.html' %}
+
 {% set template = 'home' %}
+{% set page_title = 'Homepage' %}
 
 {% block content %}
 
   <main class='container'>
 
-    <section class='container__content'>
-      {{ pageHeader.headerTitle(template) }}
-      {% include 'components/content.html' %}
-    </section>
+    <!-- Title -->
+    {{ pageHeader.pageTitle(page_title) }}
 
   </main>
 
-  <!-- javascript class mapper -->
+  <!-- Javascript class mapper -->
   {{ pageJSON.classMapper(template) }}
 
 {% endblock %}

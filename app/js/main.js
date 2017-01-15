@@ -4,8 +4,6 @@ import Auth from './auth/Auth';
 import Home from './templates/Home';
 import Page from './templates/Page';
 
-console.log('Main.js');
-
 const TemplateMap = {
   mapping: {
     "global": Global,

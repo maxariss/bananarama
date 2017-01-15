@@ -1,0 +1,129 @@
+// Grid
+@mixin container() {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+@mixin row() {
+  font-size: 0;
+}
+
+// @include col(1, 3)
+// @include col(1, 2, $gap: 2em)
+// @include col(1, 3, $first: true)
+// @include col(1, 3, $last: true)
+@mixin col($col, $sum, $gap: $gutter-half, $align: top, $first: false, $last: false) {
+  width: percentage($col / $sum);
+  font-size: $body-size;
+  display: inline-block;
+  vertical-align: $align;
+  box-sizing: border-box;
+  padding-left: if($first, 0, $gap);
+  padding-right: if($last, 0, $gap);
+}
+
+// Alignment
+@mixin align($value) {
+  display: inline-block;
+
+  @if $value == top {
+    vertical-align: top;
+  }
+  @if $value == middle {
+    vertical-align: middle;
+  }
+  @if $value == bottom {
+    vertical-align: bottom;
+  }
+}
+
+// Centering
+@mixin center($orientation: both) {
+  position: absolute;
+
+  @if $orientation == both {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  @if $orientation == vertical {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @if $orientation == horizontal {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+// Coverer
+@mixin coverer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// Aspect ratio
+@mixin ratio($ratio: 1 1) {
+  $width: 100%;
+  $height: percentage(nth($ratio, 2) / nth($ratio, 1));
+
+  width: $width;
+  height: 0;
+  padding-bottom: $height;
+}
+
+// Text link
+@mixin textlink($color, $percentage: 15%) {
+  &,
+  > a,
+  > button {
+    @extend %font-smoothing;
+    font-weight: 500;
+    color: $color;
+    text-decoration: none;
+    transition: all 0.3s $ease-out-quad;
+
+    &:hover {
+      color: contrast($color, $percentage);
+    }
+  }
+}
+
+// Breakpoints
+@mixin media($max: false, $min: false) {
+  @if $max {
+    @if $min {
+      @media screen and (max-width: $max - 1) and (min-width: $min) { @content; }
+    } @else {
+      @media screen and (max-width: $max - 1) { @content; }
+    }
+  } @else {
+    @media screen and (min-width: $min) { @content; }
+  }
+}
+
+@mixin breakpoint($point) {
+  @if $point == xl {
+    @include media($min: $breakpoint-xl) { @content; }
+  }
+  @if $point == l {
+    @include media($min: $breakpoint-l) { @content; }
+  }
+  @if $point == m {
+    @include media($min: $breakpoint-m) { @content; }
+  }
+  @if $point == ms {
+    @include media($min: $breakpoint-ms) { @content; }
+  }
+  @if $point == s {
+    @include media($min: $breakpoint-s) { @content; }
+  }
+  @if $point == xs {
+    @include media($max: $breakpoint-s) { @content; }
+  }
+}

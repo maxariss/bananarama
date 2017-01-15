@@ -5,8 +5,8 @@
   <head>
     <title>Bananarama</title>
     <link rel='icon' href='images/favicon.ico' type='image/x-icon'>
-    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
     <link rel='stylesheet' type='text/css' href='css/styles.css'>
+    <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1'>
 
     <!-- removeIf(production) -->
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
@@ -19,13 +19,11 @@
 
   <body>
 
+    <!-- Icons -->
+    {% include 'components/util/icon-sprite.html' %}
+
     <!-- Header -->
-    <header data-main-header>
-      {% include 'components/auth/auth-login-form.html' %}
-      {% include 'components/auth/auth-registration-form.html' %}
-      <button data-logout-button>Logout</button>
-      <div data-auth-form-message></div>
-    </header>
+    {% include 'components/header/header-layout.html' %}
 
     <!-- Content -->
     {% block content %}{% endblock %}

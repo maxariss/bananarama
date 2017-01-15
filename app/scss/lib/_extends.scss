@@ -1,0 +1,142 @@
+%container {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+%container-small {
+  max-width: $large;
+  margin: 0 auto;
+}
+
+%heading-text {
+  @extend %font-smoothing;
+  font-weight: 500;
+  color: $heading-color;
+}
+
+%h1 {
+  @extend %heading-text;
+  font-size: $h1-size;
+}
+
+%h2 {
+  @extend %heading-text;
+  font-size: $h2-size;
+}
+
+%h3 {
+  @extend %heading-text;
+  font-size: $h3-size;
+}
+
+%h4 {
+  @extend %heading-text;
+  font-size: $h4-size;
+}
+
+%h5 {
+  @extend %heading-text;
+  font-size: $h5-size;
+}
+
+%h6 {
+  @extend %heading-text;
+  font-size: $h6-size;
+}
+
+%paragraph {
+  font-size: $body-size;
+  line-height: 1.6;
+}
+
+%metatext {
+  font-size: $meta-size;
+}
+
+%clearfix {
+  *zoom: 1;
+
+  &::before,
+  &::after {
+    display: table;
+    content: "";
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+%font-smoothing {
+  -moz-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+%button-reset {
+  &,
+  button {
+    padding: 0;
+    font-size: $h6-size;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    appearance: normal;
+
+    &:focus { outline: none; }
+  }
+}
+
+%dropdown-arrow {
+  $arrow-size: 8px;
+
+  position: relative;
+  padding-right: $gutter-half + $arrow-size;
+
+  &::before,
+  &::after {
+    @include align(middle);
+    position: absolute;
+    top: calc(50% + 1px);
+    right: 0;
+    z-index: 1;
+    width: $arrow-size;
+    height: $arrow-size;
+    margin-top: -$arrow-size;
+    background-color: $meta-color;
+    content: "";
+    transform: rotate(45deg);
+  }
+
+  &::before {
+    z-index: 2;
+    margin-top: -($arrow-size + 2px);
+    background-color: $white;
+  }
+}
+
+%revealer-fade {
+  display: none;
+
+  &.visible,
+  &.animating { display: block; }
+
+  &.animating {
+    opacity: 0;
+    transition: all 0.4s $ease-out-quad;
+  }
+
+  &.visible { opacity: 1; }
+}
+
+%visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  border: 0;
+  clip-path: inset(1px);
+}

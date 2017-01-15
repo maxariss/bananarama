@@ -1,0 +1,7 @@
+.page-header {
+  @extend %h5;
+  width: 100%;
+  letter-spacing: 3px;
+  text-align: center;
+  text-transform: uppercase;
+}

@@ -1,25 +1,25 @@
 // Packages
-// @import "../jspm_packages/npm/normalize.scss@0.1.0/normalize";
+@import "../js/jspm_packages/npm/normalize-scss@6.0.0/sass/normalize";
 
 // Variables
 @import "lib/variables";
+@import "lib/colors";
 
 // Functions
-// @import "lib/functions";
-
-// Utility
-// @import "lib/mixins";
-// @import "lib/extends";
+@import "lib/functions";
+@import "lib/mixins";
+@import "lib/extends";
 
 // General
 @import "general/layout";
 @import "general/typography";
+@import "general/svg";
 // @import "general/button";
 // @import "general/form";
 
 // Header
-// @import "components/header/header-layout";
-// @import "components/header/header-branding";
+@import "components/header/header-layout";
+@import "components/header/header-branding";
 // @import "components/header/header-navigation";
 // @import "components/header/header-tools";
 
@@ -27,3 +27,6 @@
 // @import "components/footer/footer-layout";
 // @import "components/footer/footer-branding";
 // @import "components/footer/footer-navigation";
+
+// Components
+@import "components/page/page-header";

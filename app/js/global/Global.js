@@ -1,11 +1,12 @@
 import $ from 'jquery';
 import PageManager from '../PageManager';
+import Logo from '../components/header/Logo';
 
 export default class Global extends PageManager {
   constructor() {
     super();
 
-    console.log('Global.js');
+    new Logo();
   }
 
   loaded(next) { }

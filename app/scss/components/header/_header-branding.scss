@@ -1,0 +1,15 @@
+// Layout
+.header-branding {
+  display: block;
+  margin: 0 auto;
+}
+
+// Logo
+.header-branding__logo {
+  svg {
+    width: 250px;
+    height: 100px;
+
+    path { transition: fill 2s $ease-out-quad; }
+  }
+}
