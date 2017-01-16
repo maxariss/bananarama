@@ -1,0 +1,22 @@
+{% import 'components/forms/form-text.html' as formText %}
+
+<form
+  class="example-form"
+  data-test-form>
+
+  {{ formText.formField('text', 'Name:', 'name', true) }}
+  {{ formText.formField('email', 'Email:', 'email', true) }}
+  {{ formText.formField('textarea', 'Notes:', 'notes') }}
+
+  <button
+    type="button"
+    data-test-form-submit>
+    Submit
+  </button>
+
+  <section
+    class="example-form__entries"
+    data-form-entries>
+  </section>
+
+</form>

@@ -1,0 +1,51 @@
+<!--
+  @param {string} type - Field type
+  @param {string} label - Field label
+  @param {string} id - Field id
+  @param {bool} required - Field id
+-->
+
+{% macro formField(type, label, id, required) %}
+
+  <div class="
+    form-field
+    form-field__{{ type }}
+    {% if required == true%}required{% endif %}">
+
+    <label
+      class="form-field__label"
+      for="form-{{ type }}-{{ id }}">
+
+      <span class="form-field__title">
+        {{ label }}
+      </span>
+
+      <span class="form-field__control">
+        {%- if type == 'textarea' -%}
+          <textarea
+            name="form-{{ type }}-{{ id }}"
+            data-form-{{ type }}-{{ id }}
+            placeholder="{{ label | lower | replace(':','') }}"
+            {% if required %}
+              aria-required="true"
+              required
+            {% endif %}>
+        {%- else -%}
+          <input
+            type="{{ type }}"
+            name="form-{{ type }}-{{ id }}"
+            data-form-{{ type }}-{{ id }}
+            placeholder="{{ label | lower | replace(':','') }}"
+            {% if required %}
+              aria-required="true"
+              required
+            {% endif %} />
+        {%- endif -%}
+        {%- if type == 'textarea' -%}
+          </textarea>
+        {%- endif -%}
+      </span>
+    </label>
+  </div>
+
+{% endmacro %}

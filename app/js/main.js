@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import Global from './global/Global';
 import Auth from './auth/Auth';
+import ExampleForm from './components/forms/ExampleForm';
 import Home from './templates/Home';
 import Page from './templates/Page';
 
@@ -21,6 +22,10 @@ new Global;
 
 const auth = new Auth({
   el: '[data-main-header]'
+});
+
+const exampleForm = new ExampleForm({
+  el: '[data-test-form]'
 });
 
 window.ClassMapper = function ClassMapper(template_file) {
