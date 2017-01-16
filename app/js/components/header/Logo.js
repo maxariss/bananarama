@@ -4,6 +4,12 @@ export default class Logo {
 
     var colors = [
       {
+        'words': '#000000',
+        'banana': '#80ff00',
+        'outline': '#fb22ff',
+        'rectangle': '#7dfaf6',
+      },
+      {
         'words': '#69c4e0',
         'banana': '#ffb000',
         'outline': '#755400',
@@ -18,7 +24,7 @@ export default class Logo {
       {
         'words': '#42e48d',
         'banana': '#9c0202',
-        'outline': '#f0b3eb',
+        'outline': '#ffffff',
         'rectangle': '#333333',
       },
       {
