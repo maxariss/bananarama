@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import validation from 'jquery-validation';
 
 export default class ExampleForm {
   constructor(options = {}) {
@@ -33,7 +34,7 @@ export default class ExampleForm {
 
     // Entry submission
     this.$submit.on('click', () => {
-      this._submitForm();
+      this._submitForm(event);
     });
 
     // Submission listener
@@ -60,18 +61,39 @@ export default class ExampleForm {
     });
   }
 
-  _submitForm() {
-    // Push entry to DB
-    this.formSubmissions.push({
-       info: {
-          name: this.$name.val(),
-          email: this.$email.val(),
-          notes: this.$notes.val(),
-       }
-    });
+  _submitForm(event) {
+    this.$scope.validate({
+      rules: {
+        form_text_name: 'required',
+        form_email_email: {
+          required: true,
+          email: true
+        }
+      },
+      messages: {
+        form_text_name: 'Please enter your firstname',
+        form_email_email: 'Please enter a valid email address'
+      },
+      submitHandler: (form) => {
 
-    // Reset form
-    this.$scope[0].reset();
+        // Push entry to DB
+        this.formSubmissions.push({
+           info: {
+              name: this.$name.val(),
+              email: this.$email.val(),
+              notes: this.$notes.val(),
+           }
+        });
+
+        // Reset form
+        this.$scope[0].reset();
+      },
+      invalidHandler: () => {
+
+        // Form error
+        console.log('Error! Error, Will Robinson!');
+      }
+    });
   }
 
   _entryAdded(entry) {

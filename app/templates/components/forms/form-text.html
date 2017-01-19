@@ -14,7 +14,7 @@
 
     <label
       class="form-field__label"
-      for="form-{{ type }}-{{ id }}">
+      for="form_{{ type }}_{{ id }}">
 
       <span class="form-field__title">
         {{ label }}
@@ -23,7 +23,7 @@
       <span class="form-field__control">
         {%- if type == 'textarea' -%}
           <textarea
-            name="form-{{ type }}-{{ id }}"
+            name="form_{{ type }}_{{ id }}"
             data-form-{{ type }}-{{ id }}
             placeholder="{{ label | lower | replace(':','') }}"
             {% if required %}
@@ -33,7 +33,7 @@
         {%- else -%}
           <input
             type="{{ type }}"
-            name="form-{{ type }}-{{ id }}"
+            name="form_{{ type }}_{{ id }}"
             data-form-{{ type }}-{{ id }}
             placeholder="{{ label | lower | replace(':','') }}"
             {% if required %}
