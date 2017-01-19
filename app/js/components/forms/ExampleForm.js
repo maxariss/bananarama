@@ -50,12 +50,12 @@ export default class ExampleForm {
 
     // Removal listener
     this.formSubmissions.on('child_removed', (entry) => {
-      const $removed_entry = $(`#${entry.key}`);
+      const $removedEntry = $(`#${entry.key}`);
 
       console.log(`${entry.val().info.name} was removed.`);
 
-      $removed_entry.fadeOut(() => {
-        $removed_entry.remove();
+      $removedEntry.fadeOut(() => {
+        $removedEntry.remove();
       });
     });
   }

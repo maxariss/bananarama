@@ -21,11 +21,11 @@ const TemplateMap = {
 new Global;
 
 const auth = new Auth({
-  el: '[data-main-header]'
+  el: '[data-main-header]',
 });
 
 const exampleForm = new ExampleForm({
-  el: '[data-test-form]'
+  el: '[data-test-form]',
 });
 
 window.ClassMapper = function ClassMapper(template_file) {

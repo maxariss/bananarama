@@ -2,7 +2,7 @@ export default class Logo {
   constructor() {
     this.$logo = $('.header-branding__logo svg');
 
-    var colors = [
+    const colors = [
       {
         'words': '#000000',
         'banana': '#80ff00',
@@ -35,10 +35,10 @@ export default class Logo {
       }
     ]
 
-    this._logoColors(colors);
+    this._rotateLogoColors(colors);
   }
 
-  _logoColors(colors) {
+  _rotateLogoColors(colors) {
     let index = -1;
 
     setInterval(() => {
